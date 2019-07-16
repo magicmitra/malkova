@@ -1,1 +1,6 @@
-Something is in the log...
+scoot 1563231456007
+Error username invalid on andrew.json 1563231602772
+amaney@talentpath.com 1563231633495
+Error with shit.json 1563293757162
+{"andrew":{"firstname":"Andrew","lastname":"maney","email":"amaney@talentpath.com"},"bruh":{"bruh":"bruh"},"post":{"title":"Async/Await lesson","description":"How to write asynchronous JavaScript","date":"July 15, 2019"},"scott":{"firstname":"Scott","lastname":"Roberts","email":"sroberts@talentpath.com","username":"teamSkeet"},"shit":{}}
+ERROR: Error: ENOENT: no such file or directory, open 'C:\Users\EMitra\Documents\javascript\js-cardio-async\andrew.json:' 1563303501107
