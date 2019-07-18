@@ -5,3 +5,14 @@ Error with shit.json 1563293757162
 {"andrew":{"firstname":"Andrew","lastname":"maney","email":"amaney@talentpath.com"},"bruh":{"bruh":"bruh"},"post":{"title":"Async/Await lesson","description":"How to write asynchronous JavaScript","date":"July 15, 2019"},"scott":{"firstname":"Scott","lastname":"Roberts","email":"sroberts@talentpath.com","username":"teamSkeet"},"shit":{}}
 ERROR: Error: ENOENT: no such file or directory, open 'C:\Users\EMitra\Documents\javascript\js-cardio-async\andrew.json:' 1563303501107
 {"andrew":{"firstname":"Andrew","lastname":"maney","email":"amaney@talentpath.com"},"bruh":{"bruh":"bruh"},"damn":{},"post":{"title":"Async/Await lesson","description":"How to write asynchronous JavaScript","date":"July 15, 2019"},"scott":{"firstname":"Scott","lastname":"Roberts","email":"sroberts@talentpath.com","username":"teamSkeet"},"shit":{}}
+Message: Get instrument on andrew.json -> guitar 1563425930499
+Message: Set DnDName on andrew.json -> Ezzy Ecstacy @Timestamp: 1563426418651
+Message: Set DnDName on scott.json -> The Cream @Timestamp: 1563426542107
+Message: Remove DnDName on scott.json @Timestamp: 1563426635431
+Message: CreateFile DENIED: scott.json already exists @Timestamp: 1563426803953
+Message: CreateFile yo.json @Timestamp: 1563426868344
+Message: CreateFile DENIED: yo.json already exists @Timestamp: 1563426909558
+MergeData Performed -> {"andrew":{"firstname":"Andrew","lastname":"maney","email":"amaney@talentpath.com","instrument":"guitar","DnDName":"Ezzy Ecstacy"},"bruh":{"bruh":"bruh"},"damn":{},"post":{"title":"Async/Await lesson","description":"How to write asynchronous JavaScript","date":"July 15, 2019"},"scott":{"firstname":"Scott","lastname":"Roberts","email":"sroberts@talentpath.com","username":"teamSkeet"},"shit":{},"yo":{}}
+Message: Union Performed firstname,lastname,email,instrument,DnDName,username @Timestamp: 1563427128276
+Message: Intersection Performed firstname,lastname,email @Timestamp: 1563427255275
+Message: Difference Performed instrument,DnDName,username @Timestamp: 1563427287019

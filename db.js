@@ -15,8 +15,8 @@ ex after running delete('user.json'):
 
 Errors should also be logged (preferably in a human-readable format)
 */
-function log(value) {
-  return fs.appendFile('log.txt', `${value} ${Date.now()}\n`);
+function log(options) {
+  return fs.appendFile('log.txt', `Message: ${options} @Timestamp: ${Date.now()}\n`);
 }
 
 /**
@@ -37,7 +37,7 @@ async function get(file, key) {
     const parsed = JSON.parse(data);
     const value = parsed[key];
     if(!value) return log(`Error ${key} invalid on ${file}`)
-    return log(value);
+    return log(`Get ${key} on ${file} -> ${value}`);
   } catch(err) {
     log(`Error no file or directory on ${file} -> ${err}`);
   }
@@ -55,7 +55,8 @@ async function set(file, key, value) {
     const parsed = JSON.parse(data);
     parsed[key] = value;
     const stringed = JSON.stringify(parsed);
-    return fs.writeFile(file, stringed);
+    await fs.writeFile(file, stringed);
+    return log(`Set ${key} on ${file} -> ${value}`)
   } catch(err) {
     log(`Error ${err}`);
   }
@@ -72,7 +73,8 @@ async function remove(file, key) {
     const parsed = JSON.parse(data);
     parsed[key] = undefined;
     const stringed = JSON.stringify(parsed);
-    return fs.writeFile(file, stringed);
+    await fs.writeFile(file, stringed);
+    return log(`Remove ${key} on ${file}`);
   } catch(err) {
     log(`Error ${err}`);
   }
@@ -102,12 +104,14 @@ async function createFile(file) {
     const data = await fs.readFile(path, 'utf-8');
     if(data[0]) {
       // file already exists
+      await log(`CreateFile DENIED: ${file} already exists`);
       return console.log(`${file} already exists`);
     }
   } catch(err) {
     if(err.code === 'ENOENT') {
       // then make the damn file
-      return fs.writeFile(file, '{}');
+      await fs.writeFile(file, '{}');
+      return log(`CreateFile ${file}`);
     } else {
       console.log(`ERROR: ${err}`)
     }
@@ -150,7 +154,7 @@ async function mergeData() {
       objectToWrite[fileName] = parsed;
     }
     objectToWrite = JSON.stringify(objectToWrite);
-    return fs.appendFile('log.txt', `${objectToWrite}\n`);
+    return fs.appendFile('log.txt', `MergeData Performed -> ${objectToWrite}\n`);
   } catch(err) {
     console.log(`ERORR: ${err}`);
   }
@@ -181,7 +185,7 @@ async function union(fileA, fileB) {
         returnedArr.push(key);
       }
     }
-    console.log(returnedArr);
+    return log(`Union Performed ${returnedArr}`);
   } catch(err) {
     log(`ERROR: ${err}`);
   }
@@ -209,7 +213,7 @@ async function intersect(fileA, fileB) {
         }
       }
     }
-    console.log(returnedArr);
+    return log(`Intersection Performed ${returnedArr}`);
   } catch(err) {
     log(`ERROR: ${err}`)
   }
@@ -250,7 +254,7 @@ async function difference(fileA, fileB) {
       }
     }
     // difference is now recorded
-    console.log(differentArr);
+    return log(`Difference Performed ${differentArr}`);
   } catch(err) {
     log(`ERROR: ${err}`)
   }
