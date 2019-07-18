@@ -16,3 +16,4 @@ MergeData Performed -> {"andrew":{"firstname":"Andrew","lastname":"maney","email
 Message: Union Performed firstname,lastname,email,instrument,DnDName,username @Timestamp: 1563427128276
 Message: Intersection Performed firstname,lastname,email @Timestamp: 1563427255275
 Message: Difference Performed instrument,DnDName,username @Timestamp: 1563427287019
+MergeData Performed -> {"andrew":{"firstname":"Andrew","lastname":"maney","email":"amaney@talentpath.com","instrument":"guitar","DnDName":"Ezzy Ecstacy"},"bruh":{"bruh":"bruh"},"damn":{},"post":{"title":"Async/Await lesson","description":"How to write asynchronous JavaScript","date":"July 15, 2019"},"scott":{"firstname":"Scott","lastname":"Roberts","email":"sroberts@talentpath.com","username":"teamSkeet"},"shit":{},"yo":{}}
